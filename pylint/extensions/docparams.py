@@ -143,6 +143,11 @@ class DocstringParameterChecker(BaseChecker):
             "useless-type-doc",
             "Please remove the ignored parameter type documentation.",
         ),
+        "W9021": (
+            'Missing any documentation in "%s"',
+            "missing-any-doc",
+            "Please add parameter and/or type documentation.",
+        ),
     }
 
     options = (
@@ -538,6 +543,11 @@ class DocstringParameterChecker(BaseChecker):
         # Tolerate no parameter documentation at all.
         if not params_with_doc and not params_with_type and accept_no_param_doc:
             tolerate_missing_params = True
+            self.add_message(
+                "missing-any-doc",
+                args=(warning_node.name),
+                node=warning_node,
+            )
 
         if not tolerate_missing_params:
             self._compare_missing_args(
