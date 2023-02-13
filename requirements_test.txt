@@ -7,6 +7,6 @@ tbump~=6.6.0
 pyenchant~=3.2
 pytest-cov~=3.0
 pytest-profiling~=1.7
-pytest-xdist~=2.5
+pytest-xdist~=3.2
 # Type packages for mypy
 types-pkg_resources==0.1.3
